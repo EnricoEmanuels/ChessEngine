@@ -1,0 +1,115 @@
+Wat is een JAR-bestand?
+Een .jar (Java ARchive) is gewoon een pakket van gecompileerde .class-bestanden (Java-klassen), resources en metadata. Het is vergelijkbaar met een .zip-bestand. Je voegt het toe aan je project zodat je die klassen kunt gebruiken, bijvoorbeeld van externe bibliotheken zoals Guava.
+
+Wat is Guava?
+Guava is een open source Java-bibliotheek van Google die veelgebruikte structuren bevat, zoals ImmutableMap, ImmutableList, caching, hashing, enzovoort.
+
+Stap 1: De juiste versie van Guava downloaden
+Als je geen Maven gebruikt, kun je de .jar handmatig downloaden:
+
+Downloadlink Guava (officiële site):
+
+Ga naar: https://mvnrepository.com/artifact/com.google.guava/guava
+
+Kies een recente stabiele versie (bijv. 32.1.2-jre of 31.1-jre).
+
+Klik op de versie.
+
+Klik op de .jar downloadlink (meestal staat er “jar (XXX KB)”).
+
+Het zal een bestand zoals guava-32.1.2-jre.jar downloaden.
+
+Stap 2: Toevoegen aan jouw Java-project (zonder Maven/Gradle)
+Als je een puur Java-project gebruikt (bijvoorbeeld in IntelliJ IDEA of NetBeans), doe je het zo:
+
+In IntelliJ IDEA:
+Ga naar je project in IntelliJ.
+
+Klik bovenaan op File > Project Structure.
+
+Ga naar Libraries (of klik op het plusje + > Java).
+
+Navigeer naar de gedownloade .jar (bijv. guava-32.1.2-jre.jar).
+
+Klik op OK.
+
+Zorg dat je project (src) gekoppeld is aan deze library (IDEA vraagt dit meestal vanzelf).
+
+Stap 3: Gebruik van ImmutableMap
+Nu kun je in je code bijvoorbeeld dit doen:
+
+java
+Copy
+Edit
+import com.google.common.collect.ImmutableMap;
+
+public class Test {
+    public static void main(String[] args) {
+        ImmutableMap<String, Integer> map = ImmutableMap.of("a", 1, "b", 2);
+        System.out.println(map);
+    }
+}
+Samenvatting:
+.jar = bundel van Java-klassen.
+
+Guava download = via https://mvnrepository.com/artifact/com.google.guava/guava
+
+Geen Maven? Geen probleem: voeg de .jar handmatig toe via je IDE.
+
+Gebruik ImmutableMap en andere Guava-tools daarna gewoon in je Java-code.
+
+-------------------------------------------
+
+Stap 1: Wat betekenen al die dingen op de Guava-downloadpagina?
+Je bent op deze pagina (voorbeeld): https://mvnrepository.com/artifact/com.google.guava/guava/32.1.2-jre
+
+Je ziet daar veel soorten .jar-bestanden. Hier is wat ze betekenen:
+
+1. guava-32.1.2-jre.jar → DIT IS DE ENIGE DIE JIJ NODIG HEBT
+Dit is de daadwerkelijke library die je toevoegt aan je project.
+
+Download deze:
+guava-32.1.2-jre.jar (Directe link)
+
+2. *-sources.jar
+De broncode van de Guava-library (voor wie wil kijken hoe het intern werkt).
+
+Niet verplicht.
+
+3. *-javadoc.jar
+Bevat de JavaDoc-documentatie (alle uitleg over methodes/klassen).
+
+Niet verplicht.
+
+4. *.pom
+Wordt gebruikt als je Maven gebruikt (dat doe jij niet).
+
+Niet nodig.
+
+5. .module
+Voor module-informatie (vanaf Java 9+), meestal voor geavanceerde setups.
+
+Niet nodig.
+
+6. .asc, .md5, .sha1
+Verificatiebestanden voor veiligheid. Jij hoeft hier niets mee te doen.
+
+Stap 2: Wat betekent "jre" versus "android"?
+jre = Gebouwd voor gewone Java (Java Runtime Environment). Dit is wat jij gebruikt.
+
+android = Gebouwd voor Android-applicaties. Niet geschikt voor jou.
+
+Dus: jij gebruikt de jre versie.
+
+Stap 3: Samenvatting voor jouw situatie
+Wat moet je doen?
+Download guava-32.1.2-jre.jar
+
+Open je Java-project in je IDE (zoals IntelliJ IDEA).
+
+Voeg die .jar toe als externe library:
+
+IntelliJ:
+File > Project Structure > Libraries > + > Java > kies jouw .jar > OK
+
+Klaar! Nu kun je ImmutableMap en andere Guava-structuren gebruiken.
