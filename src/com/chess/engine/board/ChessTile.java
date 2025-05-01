@@ -61,7 +61,7 @@ public abstract class ChessTile {
 
     private static Map<Integer, EmptyTile> createAllPossibleEmptyTiles() {
         final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0; i < BoardUtils.NUM_TILES; i++) {
             emptyTileMap.put(i, new EmptyTile(i));
         }
 //        return emptyTileMap;
@@ -89,7 +89,7 @@ public abstract class ChessTile {
     }
 
     // die constructor gaat ervoor zorgen dat we een individuele tile kunnen maken of creeeren
-    private ChessTile(int tileCoordinate) {
+    private ChessTile(final int tileCoordinate) {
         this.tileCoordinate = tileCoordinate;
     }
     // deze methode zal handig zijn om te weten of een tile of tegel al bezet is
@@ -132,7 +132,7 @@ public abstract class ChessTile {
 
 
         // die constructor voor die Occupied tile gaat die coordinaaat plus die stuk nemen
-        private OccupiedTile(int tileCoordinate, Piece pieceOnTile) {
+        private OccupiedTile(int tileCoordinate, final Piece pieceOnTile) {
             // we gaan die superclass constructor aanroepen om die tile / tegel zal instantieerenn
             super(tileCoordinate);
             this.pieceOnTile = pieceOnTile;
