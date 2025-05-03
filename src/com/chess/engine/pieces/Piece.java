@@ -13,13 +13,20 @@ public abstract class Piece {
     // die stukje zal zwart of wit zijn
     protected final Alliance pieceAlliance;
     /* die alliance zal niet alleeb voordelig zijn voor die stukken maar ook voor die spelers */
+    protected final boolean isFirstMove;
 
     Piece(final int piecePosition, final Alliance pieceAlliance) {
         this.piecePosition = piecePosition;
         this.pieceAlliance = pieceAlliance;
+        // TODO more work here !!
+        this.isFirstMove = false;
     }
     public Alliance getPieceAlliance() {
         return this.pieceAlliance;
+    }
+
+    public boolean isFirstMove() {
+        return this.isFirstMove;
     }
 
 //    public final int getPiecePosition() {
